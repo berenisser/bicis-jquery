@@ -10,8 +10,7 @@ $(document).ready(function() {
 		correo();
 		contrasena();
 		seleccion();
-	});
-	
+	}); 
 
 	//validación nombre
 	function nombre(){
@@ -27,6 +26,7 @@ $(document).ready(function() {
 			var apellidoValue = $("#lastname").val();
 			if (!(/^[A-Z][a-z]{3,19}$/).test(apellidoValue)){
 			$(".lastname-container").append('<span>Apellido inválido. Debe incluir letras de la A-Z</span>');
+			$("#lastname").val("");
 			}
 	}
 
@@ -35,6 +35,7 @@ $(document).ready(function() {
 			var emailValue = $("#input-email").val();
 			if (!(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/).test(emailValue)){
 			$(".email-container").append('<span>Correo inválido. Debe tener formato valido</span>');
+			$("#input-email").val("");
 			}
 	}
 
@@ -43,6 +44,7 @@ $(document).ready(function() {
 			var passValue = $("#input-password").val();
 			if (passValue=="123456" || passValue=="098765" || passValue=="password" || !(/^(?=.*\d).{6,}$/).test(passValue)){
 				$(".password-container").append('<span>Contraseña inválida. Mínimo 6 caracteres</span>');
+				$("#input-password").val("");
 			}
 	}
 
@@ -52,6 +54,7 @@ $(document).ready(function() {
 			for (var i=0 ; i<selectValue.length ; i++){
 				if (selectValue.val() == 0){
 					$(".select-container").append('<span>Debe seleccionar una opción</span>');
+					$("select").val("0"); 
 				}
 			}	
 	}
